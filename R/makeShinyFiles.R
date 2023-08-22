@@ -485,7 +485,7 @@ makeShinyFiles <- function(
       if(!is.null(obj@misc$gene_ranks$aucell$all)) {
         gene_ranks <- obj@misc$gene_ranks$aucell$all
         sc1conf$extra_tabs[4] = TRUE
-        #saveRDS(gene_ranks, file=paste0(shiny.dir, "/", shiny.prefix, "gene_ranks.rds"))
+        saveRDS(gene_ranks, file=paste0(shiny.dir, "/", shiny.prefix, "gene_ranks.rds"))
       }
       else {
         print("Warning: 'gene.ranks' not found in Seurat (structure expected: seurat@misc$gene_ranks$aucell$all);\n \
