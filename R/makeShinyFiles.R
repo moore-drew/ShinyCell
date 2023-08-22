@@ -228,7 +228,7 @@ makeShinyFiles <- function(
       # Update sc1conf accordingly
       tmp = data.table(ID = colnames(drMat), UI = colnames(drMat),
                        fID = NA, fUI = NA, fCL = NA, fRow = NA, 
-                       default = 0, grp = FALSE, dimred = TRUE)
+                       default = 0, grp = FALSE, split = FALSE, dimred = TRUE)
       tmp$UI = gsub("_", "", tmp$UI)
       sc1conf = rbindlist(list(sc1conf, tmp))
     }
@@ -248,7 +248,7 @@ makeShinyFiles <- function(
       # Update sc1conf accordingly
       tmp = data.table(ID = colnames(drMat), UI = colnames(drMat),
                        fID = NA, fUI = NA, fCL = NA, fRow = NA, 
-                       default = 0, grp = FALSE, dimred = TRUE)
+                       default = 0, grp = FALSE, dimred = TRUE, split = FALSE)
       tmp$UI = gsub("_", "", tmp$UI)
       sc1conf = rbindlist(list(sc1conf, tmp))
     }
@@ -267,7 +267,7 @@ makeShinyFiles <- function(
       # Update sc1conf accordingly
       tmp = data.table(ID = colnames(drMat), UI = colnames(drMat),
                        fID = NA, fUI = NA, fCL = NA, fRow = NA, 
-                       default = 0, grp = FALSE, dimred = TRUE)
+                       default = 0, grp = FALSE, dimred = TRUE, split = FALSE)
       tmp$UI = gsub("_", "", tmp$UI)
       sc1conf = rbindlist(list(sc1conf, tmp))
     }
@@ -286,7 +286,7 @@ makeShinyFiles <- function(
       # Update sc1conf accordingly
       tmp = data.table(ID = colnames(drMat), UI = colnames(drMat),
                        fID = NA, fUI = NA, fCL = NA, fRow = NA, 
-                       default = 0, grp = FALSE, dimred = TRUE)
+                       default = 0, grp = FALSE, dimred = TRUE, split = FALSE)
       tmp$UI = gsub("_", "", tmp$UI)
       sc1conf = rbindlist(list(sc1conf, tmp))
     }
@@ -485,7 +485,7 @@ makeShinyFiles <- function(
       if(!is.null(obj@misc$gene_ranks$aucell$all)) {
         gene_ranks <- obj@misc$gene_ranks$aucell$all
         sc1conf$extra_tabs[4] = TRUE
-        saveRDS(gene_ranks, file=paste0(shiny.dir, "/", shiny.prefix, "gene_ranks.rds"))
+        #saveRDS(gene_ranks, file=paste0(shiny.dir, "/", shiny.prefix, "gene_ranks.rds"))
       }
       else {
         print("Warning: 'gene.ranks' not found in Seurat (structure expected: seurat@misc$gene_ranks$aucell$all);\n \
@@ -495,9 +495,6 @@ makeShinyFiles <- function(
     }
   }
 
-  
-
-  #print(sc1conf)
   saveRDS(sc1conf, file = paste0(shiny.dir, "/", shiny.prefix, "conf.rds"))
   return(sc1conf)
 }

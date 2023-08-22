@@ -53,7 +53,7 @@ makeShinyCodes <- function(shiny.title, shiny.footnotes,
     fname = paste0(shiny.dir, "/server.R")
     readr::write_file(wrLib(
       c("shiny","shinyhelper","data.table","Matrix","DT","magrittr","ggplot2",
-        "ggrepel","hdf5r","ggdendro","gridExtra","AUCell","rbokeh")), file = fname)
+        "ggrepel","hdf5r","ggdendro","gridExtra","AUCell","rbokeh", "GSEABase, include.only = 'GeneSet'")), file = fname)
     readr::write_file(wrSVload(shiny.prefix, markers.all, markers.top20, de.genes), append = TRUE, file = fname)
     readr::write_file(wrSVfix(), append = TRUE, path = fname)
     readr::write_file(wrSVmain(shiny.prefix, subst), append = TRUE, file = fname)
@@ -86,7 +86,7 @@ makeShinyCodes <- function(shiny.title, shiny.footnotes,
     fname = paste0(shiny.dir, "/server.R")
     readr::write_file(wrLib(
       c("shiny","shinyhelper","data.table","Matrix","DT","magrittr","ggplot2",
-        "ggrepel","hdf5r","ggdendro","gridExtra","AUCell","rbokeh")), path = fname)
+        "ggrepel","hdf5r","ggdendro","gridExtra","AUCell","rbokeh", "GSEABase, include.only = 'GeneSet'")), path = fname)
     readr::write_file(wrSVload(shiny.prefix, markers.all, markers.top20, de.genes), append = TRUE, path = fname)
     readr::write_file(wrSVfix(), append = TRUE, path = fname)
     readr::write_file(wrSVmain(shiny.prefix, subst), append = TRUE, path = fname)
